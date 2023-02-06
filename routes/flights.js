@@ -5,7 +5,7 @@ var flightsCtrl = require('../controllers/flights');
 
 
 // GET /flights
-router.get('/', moviesCtrl.index);
+router.get('/', flightsCtrl.index);
 // GET /flights/new
 router.get('/new', flightsCtrl.new);
 // POST /flights

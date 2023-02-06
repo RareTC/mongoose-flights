@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function index(req, res) {
-  Flight.find({}, function(err, flight) {
+  Flight.find({}, function(err, flights) {
     res.render('flights/index', { flights });
   });
 }
@@ -21,11 +21,11 @@ function create(req, res) {
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }
-  const movie = new Movie(req.body);
+  const movie = new Flight(req.body);
   movie.save(function(err) {
-    if (err) return res.redirect('/movies/new');
-    console.log(movie);
-    res.redirect('/movies');
+    if (err) return res.redirect('/flights/new');
+    console.log(flight);
+    res.redirect('/flights');
   });
 }
 
