@@ -11,6 +11,8 @@ function create(req, res) {
     flight.destinations.push(req.body);
     flight.save(function(err) {
       // Step 5
+      console.log(err)
+      console.log(flight.destinations)
       res.redirect(`/flights/${flight._id}`);
     });
   });
