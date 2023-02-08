@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
 require('./config/database');
+var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/flights', flightsRouter);
 app.use('/', destinationsRouter);
 app.use('/', ticketsRouter);
+app.use(methodOverride('_method'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
