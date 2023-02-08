@@ -21,7 +21,9 @@ function newTicket(req, res) {
 }
 
 function deleteTicket(req, res) {
+    console.log('delete ticket')
     Ticket.findByIdAndDelete(req.params.id, function(err, ticket) {
+        console.log(ticket.flight._id)
         res.redirect(`/flights/${ticket.flight._id}`);
     });
 }
